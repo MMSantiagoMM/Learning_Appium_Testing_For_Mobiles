@@ -1,36 +1,14 @@
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.devtools.v85.input.model.TouchPoint;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
-
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class HomeTest {
 
     @Test
     public void testAndroid() throws InterruptedException {
-        UiAutomator2Options options = new UiAutomator2Options()
-                .setUdid("emulator-5554")
-                .setAppActivity("MainActivity")
-                .setApp("C:/Users/s.mosquera/Downloads/Android-NativeDemoApp-0.4.0.apk");
 
-        WebDriver driver = null;
-        try {
-            driver = new AndroidDriver(
-                    new URL("http://127.0.0.1:4723"), options);
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
 
 
         //WebElement logIn = driver.findElement(AppiumBy.xpath("//android.widget.TextView[@text=\"Login\"]"));
@@ -55,6 +33,8 @@ public class HomeTest {
                 //sendKeys("Santiago@gmail.com");
 
         //driver.findElement(AppiumBy.xpath("(//android.widget.TextView[@text=\"Login\"])[2]")).click();
+
+        /*
         Thread.sleep(3000);
 
         driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Drag\")")).click();
@@ -134,8 +114,10 @@ public class HomeTest {
     }
 
 
+*/
 
 
 
+}
 
 }

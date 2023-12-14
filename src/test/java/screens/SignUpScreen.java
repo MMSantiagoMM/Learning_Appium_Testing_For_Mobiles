@@ -1,0 +1,53 @@
+package screens;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.openqa.selenium.WebElement;
+
+public class SignUpScreen extends BaseScreen{
+    public SignUpScreen(AndroidDriver driver) {
+        super(driver);
+    }
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").text(\"Sign up\")")
+    private WebElement signUpLink;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.EditText\").text(\"Email\")")
+    private WebElement emailInput;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.EditText\").text(\"Password\")")
+    private WebElement passwordInput;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.EditText\").text(\"Confirm password\")")
+    private WebElement confirmPasswordInput;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").text(\"SIGN UP\")")
+    private WebElement signUpButton;
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Signed Up!\")")
+    private WebElement signedAlert;
+
+    public void signUpOnApp(String email,String password){
+        this.clickOnElement(signUpLink);
+        signUpLink.click();
+
+        emailInput.sendKeys(email);
+        passwordInput.sendKeys(password);
+        confirmPasswordInput.sendKeys(password);
+        signUpButton.click();
+    }
+
+    public String handleAlert(){
+        this.clickOnElement(signedAlert);
+        return signedAlert.getText();
+    }
+
+
+
+
+
+
+
+
+
+}
