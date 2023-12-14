@@ -55,7 +55,7 @@ public class HomeTest {
                 //sendKeys("Santiago@gmail.com");
 
         //driver.findElement(AppiumBy.xpath("(//android.widget.TextView[@text=\"Login\"])[2]")).click();
-        Thread.sleep(1000);
+        Thread.sleep(3000);
 
         driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().text(\"Drag\")")).click();
 
@@ -104,6 +104,20 @@ public class HomeTest {
         ));
 
         actions.dragAndDropBy(seven,-400,-700).perform();
+
+        WebElement eight = driver.findElement(AppiumBy.xpath(
+                "//android.view.ViewGroup[@content-desc=\"drag-l3\"]/android.widget.ImageView"
+        ));
+
+        actions.dragAndDropBy(eight,-500,-800).perform();
+
+
+
+
+        WebElement nine = driver.findElement(AppiumBy.xpath(
+                "//android.view.ViewGroup[@content-desc=\"drag-r3\"]/android.widget.ImageView"
+        ));
+        actions.dragAndDropBy(nine,449,-700).perform();
 
 
 
