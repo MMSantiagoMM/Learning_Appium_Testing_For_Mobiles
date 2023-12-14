@@ -114,14 +114,23 @@ public class HomeTest {
 
 
 
-        WebElement nine = driver.findElement(AppiumBy.xpath(
-                "//android.view.ViewGroup[@content-desc=\"drag-r3\"]/android.widget.ImageView"
-        ));
-        actions.dragAndDropBy(nine,449,-700).perform();
+        //WebElement nine = driver.findElement(AppiumBy.xpath(
+          //      "//android.view.ViewGroup[@content-desc=\"drag-r3\"]/android.widget.ImageView"
+        //));
+        //actions.dragAndDropBy(nine,449,-700).perform();
 
 
+        putPiece(driver,"//android.view.ViewGroup[@content-desc=\"drag-r3\"]/android.widget.ImageView",
+                449,-700).perform();
 
 
+    }
+
+    public Actions putPiece(WebDriver driver,String elementPath,Integer x,Integer y){
+
+        WebElement element = driver.findElement(AppiumBy.xpath(elementPath));
+        Actions actions = new Actions(driver);
+        return actions.dragAndDropBy(element,x,y);
     }
 
 
