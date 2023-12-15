@@ -12,12 +12,6 @@ public class LogInScreen extends BaseScreen{
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").text(\"Login\").instance(0)")
     private WebElement logInLink;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.EditText\").text(\"Email\")")
-    private WebElement emailInput;
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.EditText\").text(\"Password\")")
-    private WebElement passwordInput;
-
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").text(\"LOGIN\")")
     private WebElement loginButton;
 
@@ -26,8 +20,7 @@ public class LogInScreen extends BaseScreen{
 
     public void fillLogIn(){
         logInLink.click();
-        //emailInput.sendKeys(email);
-        //passwordInput.sendKeys(password);
+
         loginButton.click();
     }
 
