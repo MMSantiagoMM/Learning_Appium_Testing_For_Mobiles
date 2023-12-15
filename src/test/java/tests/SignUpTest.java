@@ -13,6 +13,7 @@ public class SignUpTest extends BaseMobileTest{
         signUpScreen.signUpOnApp(email,password);
 
         Assert.assertEquals(signUpScreen.handleAlert(),"Signed Up!");
+        signUpScreen.clickOkButton();
 
     }
 

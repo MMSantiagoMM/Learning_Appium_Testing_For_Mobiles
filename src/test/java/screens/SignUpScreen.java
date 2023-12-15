@@ -27,6 +27,9 @@ public class SignUpScreen extends BaseScreen{
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Signed Up!\")")
     private WebElement signedAlert;
 
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.Button\").text(\"OK\")")
+    private WebElement buttonSignedUp;
+
     public void signUpOnApp(String email,String password){
         this.clickOnElement(signUpLink);
         signUpLink.click();
@@ -40,6 +43,13 @@ public class SignUpScreen extends BaseScreen{
     public String handleAlert(){
         this.clickOnElement(signedAlert);
         return signedAlert.getText();
+    }
+
+    public void clickOkButton() {
+        /*this.clickOnElement(buttonSignedUp);
+        Thread.sleep(5000);
+        buttonSignedUp.click();*/
+        driver.switchTo().alert().accept();
     }
 
 
