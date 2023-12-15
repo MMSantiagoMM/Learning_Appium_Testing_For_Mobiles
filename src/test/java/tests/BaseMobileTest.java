@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeTest;
 import screens.LogInScreen;
 import screens.MainScreen;
 import screens.SignUpScreen;
+import screens.SwipeCardScreen;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,6 +20,7 @@ public class BaseMobileTest {
     MainScreen mainScreen;
     SignUpScreen signUpScreen;
     LogInScreen logInScreen;
+    SwipeCardScreen swipeCardScreen;
 
     @BeforeTest
     public void beforeTest() throws MalformedURLException {
@@ -46,6 +48,12 @@ public class BaseMobileTest {
         Thread.sleep(2000);
         signUpScreen.clickOkButton();
         return logInScreen = new LogInScreen(driver);
+    }
+
+    public SwipeCardScreen getSwipeCardScreen(){
+        getMainScreen();
+        mainScreen.tapSwipeNav();
+        return swipeCardScreen = new SwipeCardScreen(driver);
     }
 
 
