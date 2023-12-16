@@ -32,7 +32,7 @@ public class MainScreen extends BaseScreen{
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Swipe\")")
     private WebElement swipeNav;
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").text(\"Swipe horizontal\")")
+    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Swipe horizontal\")")
     private WebElement swipeMessage;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Drag\")")
