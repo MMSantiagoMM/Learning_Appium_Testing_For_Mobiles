@@ -61,6 +61,7 @@ public class MainScreen extends BaseScreen{
 
     public String tapSwipeNav(){
         this.clickOnElement(swipeNav);
+        this.clickOnElement(swipeMessage);
         swipeNav.click();
         return swipeMessage.getText();
     }

@@ -13,6 +13,7 @@ import screens.SwipeCardScreen;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 public class BaseMobileTest {
 
@@ -45,6 +46,8 @@ public class BaseMobileTest {
     public LogInScreen getLogInScreen() throws InterruptedException {
         getSignUpScreen();
         signUpScreen.signUpOnApp("CarlaV@gmail.com","secretPassword");
+        //driver.manage().wait(2000);
+        //driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         Thread.sleep(2000);
         signUpScreen.clickOkButton();
         return logInScreen = new LogInScreen(driver);

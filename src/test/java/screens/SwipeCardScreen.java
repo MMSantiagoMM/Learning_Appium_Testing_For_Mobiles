@@ -1,10 +1,25 @@
 package screens;
 
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.nativekey.AndroidKey;
+import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
+import org.checkerframework.checker.units.qual.A;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.WheelInput;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class SwipeCardScreen extends BaseScreen{
 
@@ -43,23 +58,26 @@ public class SwipeCardScreen extends BaseScreen{
     private WebElement sixthDot;
 
 
-    public void scrollToRightHorizontally() {
+    public void scrollToRightHorizontally(WebElement element) {
+       //driver.findElement(AppiumBy.androidUIAutomator(
+               //"new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsHorizontalList().flingForward()"));
 
-        //driver.findElement(AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsHorizontalList().scrollIntoView(new UiSelector().textContains(\"" + element2 + "\").instance(0))"));
-        //driver.findElement(AppiumBy
-            //    .androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsHorizontalList().flingToBeginning(10);"));
-
-        driver.findElement(AppiumBy.androidUIAutomator(
-                "new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsHorizontalList().flingForward()"));
+    Actions actions = new Actions(driver);
+    actions.dragAndDropBy(element,-900,0).perform();
 
     }
 
-    public void scrollToLeftHorizontally(){
-        driver.findElement(AppiumBy.androidUIAutomator(
-        "new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsHorizontalList().flingBackward()"));
+
+    public void scrollToLeftHorizontally(WebElement element){
+        //driver.findElement(AppiumBy.androidUIAutomator(
+        //"new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsHorizontalList().flingBackward()"));
+        Actions actions = new Actions(driver);
+        actions.dragAndDropBy(element,900,0).perform();
+
     }
 
-    public Boolean firstCardIsHidden(){
+    public Boolean firstCardIsHidden() throws InterruptedException {
+        //scrollToRightHorizontally(firstElement);
         try {
             return firstElement.isDisplayed();
         }catch (NoSuchElementException e){
@@ -84,7 +102,8 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
 
-    public Boolean secondCardIsHidden(){
+    public Boolean secondCardIsHidden() throws InterruptedException {
+        //scrollToRightHorizontally(secondElement);
         try {
             return secondElement.isDisplayed();
         }catch (NoSuchElementException e){
@@ -100,7 +119,8 @@ public class SwipeCardScreen extends BaseScreen{
         return thirdDot.isSelected();
     }
 
-    public Boolean thirdCardIsHidden(){
+    public Boolean thirdCardIsHidden() throws InterruptedException {
+        //scrollToRightHorizontally(thirdElement);
         try {
             return thirdElement.isDisplayed();
         }catch (NoSuchElementException e){
@@ -116,7 +136,8 @@ public class SwipeCardScreen extends BaseScreen{
         return fourthDot.isSelected();
     }
 
-    public Boolean fourthCardIsHidden(){
+    public Boolean fourthCardIsHidden() throws InterruptedException {
+        //scrollToRightHorizontally(fourthElement);
         try {
             return fourthElement.isDisplayed();
         }catch (NoSuchElementException e){
@@ -125,6 +146,8 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
     public Boolean isVisibleFifthCard(){
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3));
+        wait.until(ExpectedConditions.visibilityOf(fifthElement));
         return fifthElement.isDisplayed();
     }
 
@@ -132,7 +155,8 @@ public class SwipeCardScreen extends BaseScreen{
         return fifthDot.isSelected();
     }
 
-    public Boolean fifthCardIsHidden(){
+    public Boolean fifthCardIsHidden() throws InterruptedException {
+        //scrollToRightHorizontally(fifthElement);
         try {
             return fifthElement.isDisplayed();
         }catch (NoSuchElementException e){
@@ -148,7 +172,8 @@ public class SwipeCardScreen extends BaseScreen{
         return sixthDot.isSelected();
     }
 
-    public Boolean sixthCardIsHidden(){
+    public Boolean sixthCardIsHidden() throws InterruptedException {
+        //scrollToRightHorizontally(sixthElement);
         try {
             return sixthElement.isDisplayed();
         }catch (NoSuchElementException e){
@@ -156,6 +181,27 @@ public class SwipeCardScreen extends BaseScreen{
         }
     }
 
+    public WebElement getFirstElement() {
+        return firstElement;
+    }
 
+    public WebElement getSecondElement() {
+        return secondElement;
+    }
 
+    public WebElement getThirdElement() {
+        return thirdElement;
+    }
+
+    public WebElement getFourthElement() {
+        return fourthElement;
+    }
+
+    public WebElement getFifthElement() {
+        return fifthElement;
+    }
+
+    public WebElement getSixthElement() {
+        return sixthElement;
+    }
 }
