@@ -37,7 +37,8 @@ public class SignUpScreen extends BaseScreen{
         emailInput.sendKeys(email);
         passwordInput.sendKeys(password);
         confirmPasswordInput.sendKeys(password);
-        signUpButton.click();
+        this.clickOnElement(signUpButton);
+
     }
 
     public String handleAlert(){

@@ -129,6 +129,7 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
     public Boolean isVisibleFourthCard(){
+        this.isElementPresent(fourthElement);
         return fourthElement.isDisplayed();
     }
 
@@ -146,8 +147,7 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
     public Boolean isVisibleFifthCard(){
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.visibilityOf(fifthElement));
+        this.isElementPresent(fifthElement);
         return fifthElement.isDisplayed();
     }
 

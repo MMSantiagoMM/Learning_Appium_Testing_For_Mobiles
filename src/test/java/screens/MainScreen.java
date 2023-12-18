@@ -43,39 +43,39 @@ public class MainScreen extends BaseScreen{
 
     public String tapWebView(){
         this.clickOnElement(webViewNav);
-        webViewNav.click();
+
         return webViewMessage.getText();
     }
 
     public String tapLogInNav(){
         this.clickOnElement(logInNav);
-        logInNav.click();
+        this.isElementPresent(logInButtonMessage);
         return logInButtonMessage.getText();
     }
 
     public String tapFormsNav(){
         this.clickOnElement(formsNav);
-        formsNav.click();
+
         return messageForms.getText();
     }
 
     public String tapSwipeNav(){
         this.clickOnElement(swipeNav);
         this.clickOnElement(swipeMessage);
-        swipeNav.click();
+
         return swipeMessage.getText();
     }
 
     public String tapDragNav(){
         this.clickOnElement(dragNav);
-        dragNav.click();
+
         return dragMessage.getText();
     }
 
 
     public String tapHomeNav(){
         this.clickOnElement(homeNav);
-        homeNav.click();
+
         return homeMessage.getText();
     }
 

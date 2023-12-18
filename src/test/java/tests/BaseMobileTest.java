@@ -43,9 +43,9 @@ public class BaseMobileTest {
         return signUpScreen = new SignUpScreen(driver);
     }
 
-    public LogInScreen getLogInScreen() throws InterruptedException {
+    public LogInScreen getLogInScreen(String email, String password) throws InterruptedException {
         getSignUpScreen();
-        signUpScreen.signUpOnApp("CarlaV@gmail.com","secretPassword");
+        signUpScreen.signUpOnApp(email,password);
         //driver.manage().wait(2000);
         //driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         Thread.sleep(2000);

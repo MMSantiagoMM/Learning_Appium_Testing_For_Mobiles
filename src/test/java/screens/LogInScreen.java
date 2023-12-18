@@ -25,6 +25,7 @@ public class LogInScreen extends BaseScreen{
     }
 
     public String catchMessage(){
+        this.clickOnElement(logInMessage);
         return logInMessage.getText();
     }
 
