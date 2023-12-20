@@ -5,7 +5,7 @@ import org.testng.annotations.DataProvider;
 import java.util.Random;
 
 public class DataProviderMobile {
-    @DataProvider(name = "signUpData")
+    @DataProvider(name = "sign-up-data")
     public Object[][] getDataSignUp(){
         Object[][] data = new Object[][] {
                 {"john.doe@example.com", "password1"},
@@ -37,4 +37,9 @@ public class DataProviderMobile {
         return new Object[][] {data[randomIndex]};
     }
 
+    @DataProvider(name = "navigation-data")
+    public Object[][] getDataLogIn(){
+        return new Object[][]{{"Webview","LOGIN","Input field:",
+                "Swipe horizontal","Drag and Drop","Support"} };
+    }
 }

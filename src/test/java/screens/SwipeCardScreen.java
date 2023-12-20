@@ -29,55 +29,52 @@ public class SwipeCardScreen extends BaseScreen{
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"WebdriverIO is fully open source and can be found on GitHub\")")
     private WebElement firstElement;
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(22)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(18)")
     private WebElement firstDot;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"WebdriverIO has a great community that supports all members.\")")
     private WebElement secondElement;
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(24)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(20)")
     private WebElement secondDot;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"The JS Foundation is host to projects that span the entire JavaScript ecosystem.\")")
     private WebElement thirdElement;
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(26)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(22)")
     private WebElement thirdDot;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"The community around WebdriverIO is actively speaking on various user groups or conferences about specific topics around automated testing with WebdriverIO.\")")
     private WebElement fourthElement;
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(28)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(24)")
     private WebElement fourthDot;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Adding helper functions, or more complicated sets and combinations of existing commands is simple and really useful\")")
     private WebElement fifthElement;
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(30)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(26)")
     private WebElement fifthDot;
 
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"WebdriverIO works in combination with most of the TDD and BDD test frameworks in the JavaScript world\")")
     private WebElement sixthElement;
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(32)")
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.view.ViewGroup\").instance(28)")
     private WebElement sixthDot;
 
 
     public void scrollToRightHorizontally(WebElement element) {
-       //driver.findElement(AppiumBy.androidUIAutomator(
-               //"new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsHorizontalList().flingForward()"));
 
     Actions actions = new Actions(driver);
-    actions.dragAndDropBy(element,-900,0).perform();
+    actions.dragAndDropBy(element,-800,0).perform();
 
     }
 
 
     public void scrollToLeftHorizontally(WebElement element){
-        //driver.findElement(AppiumBy.androidUIAutomator(
-        //"new UiScrollable(new UiSelector().scrollable(true).instance(0)).setAsHorizontalList().flingBackward()"));
+
         Actions actions = new Actions(driver);
-        actions.dragAndDropBy(element,900,0).perform();
+        actions.dragAndDropBy(element,800,0).perform();
 
     }
 
-    public Boolean firstCardIsHidden() throws InterruptedException {
-        //scrollToRightHorizontally(firstElement);
+    public Boolean firstCardIsHidden(){
+
         try {
             return firstElement.isDisplayed();
         }catch (NoSuchElementException e){
@@ -90,7 +87,7 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
     public Boolean isSelectedFirstDot(){
-        return firstDot.isSelected();
+        return firstDot.isDisplayed();
     }
 
     public Boolean isVisibleSecondCard(){
@@ -98,12 +95,13 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
     public Boolean isSelectedSecondDot(){
-        return secondDot.isSelected();
+        this.isElementPresent(secondDot);
+        return secondDot.isDisplayed();
     }
 
 
-    public Boolean secondCardIsHidden() throws InterruptedException {
-        //scrollToRightHorizontally(secondElement);
+    public Boolean secondCardIsHidden(){
+
         try {
             return secondElement.isDisplayed();
         }catch (NoSuchElementException e){
@@ -116,11 +114,11 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
     public Boolean isSelectedThirdDot(){
-        return thirdDot.isSelected();
+        return thirdDot.isDisplayed();
     }
 
-    public Boolean thirdCardIsHidden() throws InterruptedException {
-        //scrollToRightHorizontally(thirdElement);
+    public Boolean thirdCardIsHidden() {
+
         try {
             return thirdElement.isDisplayed();
         }catch (NoSuchElementException e){
@@ -134,11 +132,11 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
     public Boolean isSelectedFourthDot(){
-        return fourthDot.isSelected();
+        this.isElementPresent(fourthDot);
+        return fourthDot.isDisplayed();
     }
 
-    public Boolean fourthCardIsHidden() throws InterruptedException {
-        //scrollToRightHorizontally(fourthElement);
+    public Boolean fourthCardIsHidden()  {
         try {
             return fourthElement.isDisplayed();
         }catch (NoSuchElementException e){
@@ -152,11 +150,10 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
     public Boolean isSelectedFifthDot(){
-        return fifthDot.isSelected();
+        return fifthDot.isDisplayed();
     }
 
-    public Boolean fifthCardIsHidden() throws InterruptedException {
-        //scrollToRightHorizontally(fifthElement);
+    public Boolean fifthCardIsHidden(){
         try {
             return fifthElement.isDisplayed();
         }catch (NoSuchElementException e){
@@ -169,11 +166,11 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
     public Boolean isSelectedSixthDot(){
-        return sixthDot.isSelected();
+        this.isElementPresent(sixthDot);
+        return sixthDot.isDisplayed();
     }
 
-    public Boolean sixthCardIsHidden() throws InterruptedException {
-        //scrollToRightHorizontally(sixthElement);
+    public Boolean sixthCardIsHidden() {
         try {
             return sixthElement.isDisplayed();
         }catch (NoSuchElementException e){

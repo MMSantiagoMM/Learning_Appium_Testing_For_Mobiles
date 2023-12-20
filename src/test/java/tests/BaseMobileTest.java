@@ -4,6 +4,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import screens.LogInScreen;
 import screens.MainScreen;
@@ -33,6 +34,11 @@ public class BaseMobileTest {
 
     }
 
+    @AfterTest
+    public void afterTests(){
+        driver.quit();
+    }
+
     public MainScreen getMainScreen(){
         return mainScreen = new MainScreen(driver);
     }
@@ -44,11 +50,11 @@ public class BaseMobileTest {
     }
 
     public LogInScreen getLogInScreen(String email, String password) throws InterruptedException {
+        //Thread.sleep(5000);
         getSignUpScreen();
         signUpScreen.signUpOnApp(email,password);
-        //driver.manage().wait(2000);
-        //driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-        Thread.sleep(2000);
+
+        Thread.sleep(5000);
         signUpScreen.clickOkButton();
         return logInScreen = new LogInScreen(driver);
     }

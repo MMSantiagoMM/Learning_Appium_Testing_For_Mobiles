@@ -35,6 +35,7 @@ public class SignUpScreen extends BaseScreen{
         signUpLink.click();
 
         emailInput.sendKeys(email);
+        this.isElementPresent(passwordInput);
         passwordInput.sendKeys(password);
         confirmPasswordInput.sendKeys(password);
         this.clickOnElement(signUpButton);
@@ -42,7 +43,8 @@ public class SignUpScreen extends BaseScreen{
     }
 
     public String handleAlert(){
-        this.clickOnElement(signedAlert);
+        //this.clickOnElement(signedAlert);
+        this.isElementPresent(signedAlert);
         return signedAlert.getText();
     }
 

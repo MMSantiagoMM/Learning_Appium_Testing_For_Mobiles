@@ -9,7 +9,7 @@ public class MainScreen extends BaseScreen{
         super(driver);
     }
 
-    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Login\"]")
+    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").text(\"Login\")")
     private WebElement logInNav;
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").text(\"LOGIN\")")
     private WebElement logInButtonMessage;
@@ -24,8 +24,6 @@ public class MainScreen extends BaseScreen{
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.TextView\").text(\"Support\")")
     private WebElement homeMessage;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Webview\")")
-    private WebElement webViewNav;
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"Webview\")")
     private WebElement webViewMessage;
 
@@ -42,40 +40,40 @@ public class MainScreen extends BaseScreen{
 
 
     public String tapWebView(){
-        this.clickOnElement(webViewNav);
-
+        this.clickOnElement(webViewMessage);
         return webViewMessage.getText();
     }
 
     public String tapLogInNav(){
         this.clickOnElement(logInNav);
-        this.isElementPresent(logInButtonMessage);
+        this.clickOnElement(logInButtonMessage);
         return logInButtonMessage.getText();
     }
 
     public String tapFormsNav(){
         this.clickOnElement(formsNav);
+        this.isElementPresent(messageForms);
 
         return messageForms.getText();
     }
 
     public String tapSwipeNav(){
         this.clickOnElement(swipeNav);
-        this.clickOnElement(swipeMessage);
+        this.isElementPresent(swipeMessage);
 
         return swipeMessage.getText();
     }
 
     public String tapDragNav(){
         this.clickOnElement(dragNav);
-
+        this.isElementPresent(dragMessage);
         return dragMessage.getText();
     }
 
 
     public String tapHomeNav(){
         this.clickOnElement(homeNav);
-
+        this.isElementPresent(homeMessage);
         return homeMessage.getText();
     }
 

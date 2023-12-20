@@ -1,63 +1,63 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class SwipeCardTest extends BaseMobileTest{
 
     @Test
-    public void testSwipe() throws InterruptedException {
+    public void testSwipe() {
         getSwipeCardScreen();
 
         swipeCardScreen.scrollToRightHorizontally(swipeCardScreen.getFirstElement());
-        swipeCardScreen.firstCardIsHidden();
-        swipeCardScreen.isVisibleSecondCard();
-        swipeCardScreen.isSelectedSecondDot();
+        Assert.assertFalse(swipeCardScreen.firstCardIsHidden());
+        Assert.assertTrue(swipeCardScreen.isVisibleSecondCard());
+        Assert.assertTrue(swipeCardScreen.isSelectedSecondDot());
 
         swipeCardScreen.scrollToRightHorizontally(swipeCardScreen.getSecondElement());
-        swipeCardScreen.secondCardIsHidden();
-        swipeCardScreen.isVisibleThirdCard();
-        swipeCardScreen.isSelectedThirdDot();
+        Assert.assertFalse(swipeCardScreen.secondCardIsHidden());
+        Assert.assertTrue(swipeCardScreen.isVisibleThirdCard());
+        Assert.assertTrue(swipeCardScreen.isSelectedThirdDot());
 
         swipeCardScreen.scrollToRightHorizontally(swipeCardScreen.getThirdElement());
-        swipeCardScreen.thirdCardIsHidden();
-        swipeCardScreen.isVisibleFourthCard();
-        swipeCardScreen.isSelectedFourthDot();
+        Assert.assertFalse(swipeCardScreen.thirdCardIsHidden());
+        Assert.assertTrue(swipeCardScreen.isVisibleFourthCard());
+        Assert.assertTrue(swipeCardScreen.isSelectedFourthDot());
 
         swipeCardScreen.scrollToRightHorizontally(swipeCardScreen.getFourthElement());
-        swipeCardScreen.fourthCardIsHidden();
-        swipeCardScreen.isVisibleFifthCard();
-        swipeCardScreen.isSelectedFifthDot();
+        Assert.assertFalse(swipeCardScreen.fourthCardIsHidden());
+        Assert.assertTrue(swipeCardScreen.isVisibleFifthCard());
+        Assert.assertTrue(swipeCardScreen.isSelectedFifthDot());
 
         swipeCardScreen.scrollToRightHorizontally(swipeCardScreen.getFifthElement());
-        swipeCardScreen.fifthCardIsHidden();
-        swipeCardScreen.isVisibleSixthCard();
-        swipeCardScreen.isSelectedSixthDot();
+        Assert.assertFalse(swipeCardScreen.fifthCardIsHidden());
+        Assert.assertTrue(swipeCardScreen.isVisibleSixthCard());
+        Assert.assertTrue(swipeCardScreen.isSelectedSixthDot());
 
         swipeCardScreen.scrollToLeftHorizontally(swipeCardScreen.getSixthElement());
-        swipeCardScreen.sixthCardIsHidden();
-        swipeCardScreen.isVisibleFifthCard();
-        swipeCardScreen.isSelectedFifthDot();
-
+        Assert.assertFalse(swipeCardScreen.sixthCardIsHidden());
+        Assert.assertTrue(swipeCardScreen.isVisibleFifthCard());
+        Assert.assertTrue(swipeCardScreen.isSelectedFifthDot());
 
         swipeCardScreen.scrollToLeftHorizontally(swipeCardScreen.getFifthElement());
-        swipeCardScreen.fifthCardIsHidden();
-        swipeCardScreen.isVisibleFourthCard();
-        swipeCardScreen.isSelectedFourthDot();
+        Assert.assertFalse(swipeCardScreen.fifthCardIsHidden());
+        Assert.assertTrue(swipeCardScreen.isVisibleFourthCard());
+        Assert.assertTrue(swipeCardScreen.isSelectedFourthDot());
 
         swipeCardScreen.scrollToLeftHorizontally(swipeCardScreen.getFourthElement());
-        swipeCardScreen.fourthCardIsHidden();
-        swipeCardScreen.isVisibleThirdCard();
-        swipeCardScreen.isSelectedThirdDot();
+        Assert.assertFalse(swipeCardScreen.fourthCardIsHidden());
+        Assert.assertTrue(swipeCardScreen.isVisibleThirdCard());
+        Assert.assertTrue(swipeCardScreen.isSelectedThirdDot());
 
         swipeCardScreen.scrollToLeftHorizontally(swipeCardScreen.getThirdElement());
-        swipeCardScreen.thirdCardIsHidden();
-        swipeCardScreen.isVisibleSecondCard();
-        swipeCardScreen.isSelectedSecondDot();
+        Assert.assertFalse(swipeCardScreen.thirdCardIsHidden());
+        Assert.assertTrue(swipeCardScreen.isVisibleSecondCard());
+        Assert.assertTrue(swipeCardScreen.isSelectedSecondDot());
 
         swipeCardScreen.scrollToLeftHorizontally(swipeCardScreen.getSecondElement());
-        swipeCardScreen.secondCardIsHidden();
-        swipeCardScreen.isVisibleFirstCard();
-        swipeCardScreen.isSelectedFirstDot();
+        Assert.assertFalse(swipeCardScreen.secondCardIsHidden());
+        Assert.assertTrue(swipeCardScreen.isVisibleFirstCard());
+        Assert.assertTrue(swipeCardScreen.isSelectedFirstDot());
     }
 
 }

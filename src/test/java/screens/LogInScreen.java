@@ -19,9 +19,8 @@ public class LogInScreen extends BaseScreen{
     private WebElement logInMessage;
 
     public void fillLogIn(){
-        logInLink.click();
-
-        loginButton.click();
+        this.clickOnElement(logInLink);
+        this.clickOnElement(loginButton);
     }
 
     public String catchMessage(){
