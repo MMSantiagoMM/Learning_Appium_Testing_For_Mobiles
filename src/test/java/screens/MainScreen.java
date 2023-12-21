@@ -46,7 +46,7 @@ public class MainScreen extends BaseScreen{
 
     public String tapLogInNav(){
         this.clickOnElement(logInNav);
-        this.clickOnElement(logInButtonMessage);
+        this.isElementPresent(logInButtonMessage);
         return logInButtonMessage.getText();
     }
 
