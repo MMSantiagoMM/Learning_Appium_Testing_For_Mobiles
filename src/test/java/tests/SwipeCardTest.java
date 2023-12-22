@@ -17,11 +17,14 @@ public class SwipeCardTest extends BaseMobileTest{
         swipeCardScreen.scrollToRightHorizontally(swipeCardScreen.getSecondElement());
         Assert.assertFalse(swipeCardScreen.secondCardIsHidden());
         Assert.assertTrue(swipeCardScreen.isVisibleThirdCard());
+        //I couldn't catch the variable size of this element
         Assert.assertTrue(swipeCardScreen.isSelectedThirdDot());
+
 
         swipeCardScreen.scrollToRightHorizontally(swipeCardScreen.getThirdElement());
         Assert.assertFalse(swipeCardScreen.thirdCardIsHidden());
         Assert.assertTrue(swipeCardScreen.isVisibleFourthCard());
+        //I couldn't catch the variable size of this element
         Assert.assertTrue(swipeCardScreen.isSelectedFourthDot());
 
         swipeCardScreen.scrollToRightHorizontally(swipeCardScreen.getFourthElement());
@@ -54,10 +57,12 @@ public class SwipeCardTest extends BaseMobileTest{
         Assert.assertTrue(swipeCardScreen.isVisibleSecondCard());
         Assert.assertTrue(swipeCardScreen.isSelectedSecondDot());
 
+
         swipeCardScreen.scrollToLeftHorizontally(swipeCardScreen.getSecondElement());
         Assert.assertFalse(swipeCardScreen.secondCardIsHidden());
         Assert.assertTrue(swipeCardScreen.isVisibleFirstCard());
         Assert.assertTrue(swipeCardScreen.isSelectedFirstDot());
+
     }
 
 }

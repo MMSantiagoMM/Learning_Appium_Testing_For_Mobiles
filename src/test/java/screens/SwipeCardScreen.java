@@ -1,25 +1,10 @@
 package screens;
 
-import com.google.common.collect.ImmutableMap;
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.nativekey.AndroidKey;
-import io.appium.java_client.android.nativekey.KeyEvent;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.PointOption;
-import org.checkerframework.checker.units.qual.A;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.WheelInput;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class SwipeCardScreen extends BaseScreen{
 
@@ -87,7 +72,7 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
     public Boolean isSelectedFirstDot(){
-        return firstDot.isDisplayed();
+        return firstDot.getSize().getHeight() < 745;
     }
 
     public Boolean isVisibleSecondCard(){
@@ -96,7 +81,7 @@ public class SwipeCardScreen extends BaseScreen{
 
     public Boolean isSelectedSecondDot(){
         this.isElementPresent(secondDot);
-        return secondDot.isDisplayed();
+        return secondDot.getSize().getHeight() > 17;
     }
 
 
@@ -113,8 +98,8 @@ public class SwipeCardScreen extends BaseScreen{
         return thirdElement.isDisplayed();
     }
 
-    public Boolean isSelectedThirdDot(){
-        return thirdDot.isDisplayed();
+    public Boolean isSelectedThirdDot() {
+        return thirdDot.getSize().getHeight() >= 17;
     }
 
     public Boolean thirdCardIsHidden() {
@@ -133,7 +118,7 @@ public class SwipeCardScreen extends BaseScreen{
 
     public Boolean isSelectedFourthDot(){
         this.isElementPresent(fourthDot);
-        return fourthDot.isDisplayed();
+        return fourthDot.getSize().getHeight() >= 17;
     }
 
     public Boolean fourthCardIsHidden()  {
@@ -150,7 +135,7 @@ public class SwipeCardScreen extends BaseScreen{
     }
 
     public Boolean isSelectedFifthDot(){
-        return fifthDot.isDisplayed();
+        return fifthDot.getSize().getHeight() > 17;
     }
 
     public Boolean fifthCardIsHidden(){
@@ -167,7 +152,7 @@ public class SwipeCardScreen extends BaseScreen{
 
     public Boolean isSelectedSixthDot(){
         this.isElementPresent(sixthDot);
-        return sixthDot.isDisplayed();
+        return sixthDot.getSize().getHeight() > 17;
     }
 
     public Boolean sixthCardIsHidden() {

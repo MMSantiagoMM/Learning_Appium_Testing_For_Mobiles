@@ -7,10 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
-import screens.LogInScreen;
-import screens.MainScreen;
-import screens.SignUpScreen;
-import screens.SwipeCardScreen;
+import screens.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -29,6 +26,7 @@ public class BaseMobileTest {
     SignUpScreen signUpScreen;
     LogInScreen logInScreen;
     SwipeCardScreen swipeCardScreen;
+    DragScreen dragScreen;
 
     @BeforeMethod
     public void beforeTest() {
@@ -94,6 +92,12 @@ public class BaseMobileTest {
         getMainScreen();
         mainScreen.tapSwipeNav();
         return swipeCardScreen = new SwipeCardScreen(driver);
+    }
+
+    public DragScreen getDragScreen(){
+        getMainScreen();
+        mainScreen.tapDragNav();
+        return dragScreen = new DragScreen(driver);
     }
 
 
