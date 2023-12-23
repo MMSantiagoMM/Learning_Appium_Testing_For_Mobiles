@@ -23,30 +23,64 @@ public class DragScreen extends BaseScreen{
     @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(1)")
     WebElement fourthP;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(7)")
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"drag-c2\"]/android.widget.ImageView")
     WebElement fifthP;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(6)")
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"drag-r2\"]/android.widget.ImageView")
     WebElement sixthP;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(9)")
+    @AndroidFindBy(xpath= "//android.view.ViewGroup[@content-desc=\"drag-l3\"]/android.widget.ImageView")
+    WebElement seventhP;
+
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"drag-c3\"]/android.widget.ImageView")
     WebElement eighthP;
 
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(5)")
+    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"drag-l3\"]/android.widget.ImageView")
     WebElement ninthP;
-
-    @AndroidFindBy(uiAutomator = "new UiSelector().className(\"android.widget.ImageView\").instance(2)")
-    WebElement tenthP;
 
 
     public Actions toMovePiece(WebElement element, Integer x, Integer y){
         return new Actions(driver).dragAndDropBy(element,x,y);
     }
 
-    public Actions toMoveFirstPiece(){
-        return toMovePiece(firstP,-200,-1000);
+    public Actions toMoveFourthPiece(){
+        return toMovePiece(fourthP,200,-900);
     }
 
+    public Actions toMoveThirdPiece(){
+        return toMovePiece(thirdP,200,-1100);
+    }
+
+    public Actions toMoveEighthPiece(){
+        return toMovePiece(eighthP,-330,-700);
+    }
+
+    public Actions toMoveFirstPiece(){
+        return toMovePiece(firstP,-345,-1200);
+    }
+
+    public Actions toMoveSixthPiece() {
+        return toMovePiece(sixthP,549,-1000);
+    }
+
+    public Actions toMoveSeventhPiece(){
+        this.isElementPresent(seventhP);
+        return toMovePiece(seventhP,-450,-700);
+    }
+
+    public Actions toMoveFifthPiece(){
+        this.isElementPresent(fifthP);
+        return toMovePiece(fifthP,100,-1000);
+    }
+
+    public Actions toMoveSecondPiece(){
+        return toMovePiece(secondP,-200,-1100);
+    }
+
+    public Actions toMoveNinthPiece(){
+        this.isElementPresent(ninthP);
+        return toMovePiece(ninthP,-600,-850);
+    }
 
 
 }
