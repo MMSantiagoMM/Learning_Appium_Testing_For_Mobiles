@@ -26,7 +26,7 @@ public class BaseMobileTest {
     SignUpScreen signUpScreen;
     LogInScreen logInScreen;
     SwipeCardScreen swipeCardScreen;
-    DragScreen dragScreen;
+
 
     @BeforeMethod
     public void beforeTest() {
@@ -94,11 +94,6 @@ public class BaseMobileTest {
         return swipeCardScreen = new SwipeCardScreen(driver);
     }
 
-    public DragScreen getDragScreen(){
-        getMainScreen();
-        mainScreen.tapDragNav();
-        return dragScreen = new DragScreen(driver);
-    }
 
 
 }
